@@ -35,6 +35,18 @@ public class CidadeServico {
 		getEntityManager().getTransaction().commit();
 	}
 	
+	public void inserir(List<Cidade> cidades) {
+		try {
+			getEntityManager().getTransaction().begin();
+			for (Cidade cidade : cidades) {
+				getEntityManager().persist(cidade);
+			}
+			getEntityManager().getTransaction().commit();
+		} catch (Exception ex) {
+			getEntityManager().getTransaction().rollback();
+		}
+	}
+	
 	public Cidade atualizar(Cidade cidade) {
 		getEntityManager().getTransaction().begin();
 		Cidade managedCidade = getEntityManager().merge(cidade);

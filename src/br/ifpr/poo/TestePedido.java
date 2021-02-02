@@ -56,11 +56,22 @@ public class TestePedido {
 		pedidoServico.inserir(pedido1);
 		pedidoServico.inserir(pedido2);
 		
-		List<PedidoDTO> pedidos = pedidoServico.getTodasPedidos();
-		for (PedidoDTO pedidoDTO : pedidos) {
+		//O comando clear limpa o cache do entityManager. Dessa forma, a consulta deve ser feita direto no banco.
+		entityManager.clear();
+		
+		List<PedidoDTO> pedidosdto = pedidoServico.getTodosPedidos();
+		for (PedidoDTO pedidoDTO : pedidosdto) {
 			System.out.println(pedidoDTO);
 		}
-
+		
+//		entityManager.clear();
+//		
+//		List<Pedido> pedidos = pedidoServico.getTodosPedidosIneficiente();
+//		for (Pedido pedido : pedidos) {
+//			System.out.println(pedido.getId() + " - " + pedido.getPessoa().getNome() + " - " + pedido.getItems().size());
+//		}
+		
+		entityManager.close();
+		EntityManagerFactoryProducer.closeDBConnection();
 	}
-
 }

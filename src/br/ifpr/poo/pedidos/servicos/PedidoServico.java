@@ -24,7 +24,11 @@ private final EntityManager entityManager;
 		return getEntityManager().find(Pedido.class, id);
 	}
 	
-	public List<PedidoDTO> getTodasPedidos() {
+	public List<Pedido> getTodosPedidosIneficiente() {
+		return getEntityManager().createQuery("from Pedido", Pedido.class).getResultList();
+	}
+	
+	public List<PedidoDTO> getTodosPedidos() {
 		return getEntityManager().createQuery("SELECT new br.ifpr.poo.pedidos.dtos.PedidoDTO(pd.id, ps.nome, (SELECT COUNT(i) FROM ItemPedido i WHERE i MEMBER OF pd.itens))"
 				+ "FROM Pedido pd INNER JOIN pd.pessoa ps", PedidoDTO.class).getResultList();
 	}

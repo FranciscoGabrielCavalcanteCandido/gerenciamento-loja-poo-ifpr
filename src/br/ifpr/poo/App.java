@@ -3,6 +3,7 @@ package br.ifpr.poo;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import br.ifpr.poo.infra.EntityManagerFactoryProducer;
 import br.ifpr.poo.nucleo.cadastros.PessoaCadastro;
 
 public class App {
@@ -21,6 +22,7 @@ public class App {
 			operacaoSelecionada = solicitarOpcao();
 			executarOperacao(operacaoSelecionada);
 		} while (!operacaoSelecionada.equals("0"));
+		EntityManagerFactoryProducer.closeDBConnection();
 		saida.println("Sistema encerrado.");
 	}
 
