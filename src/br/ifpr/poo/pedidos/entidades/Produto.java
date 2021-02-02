@@ -1,4 +1,4 @@
-package br.ifpr.poo.infra.nucleo.entidades;
+package br.ifpr.poo.pedidos.entidades;
 
 import java.util.Objects;
 
@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Cidade {
+public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,12 +17,12 @@ public class Cidade {
 	private String nome;
 	
 	@Deprecated
-	public Cidade() {}
+	public Produto() {}
 	
-	public Cidade(String nome) {
+	public Produto(String nome) {
 		this.nome = nome;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -38,7 +38,7 @@ public class Cidade {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return getClass().hashCode();
@@ -52,12 +52,7 @@ public class Cidade {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
+		Produto other = (Produto) obj;
 		return Objects.equals(id, other.id);
-	}
-	
-	@Override
-	public String toString() {
-		return this.nome;
 	}
 }
