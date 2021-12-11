@@ -41,8 +41,8 @@ public class App {
         while (true) {
             System.out.println("=-=-=-=-=-=-=-= M E N U - C L I E N T E =-=-=-=-=-=-=-=");
             System.out.println("1 - Cadastrar Cliente" +
-                    "\n2 - Remover Cliente" +
-                    "\n3 - Visualizar Clientes cadastrados" +
+                    "\n2 - Remover o Cliente" +
+                    "\n3 - Visualizar os Clientes cadastrados" +
                     "\n4 - Voltar ao Menu Principal");
 
             System.out.print("Escolha uma opção: ");
